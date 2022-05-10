@@ -3,6 +3,7 @@ package com.onestopstudio.ads.sdk.library;
 import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -40,7 +41,13 @@ public class AppOpenManager implements LifecycleObserver, Application.ActivityLi
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     public void onStart() {
-        showAdIfAvailable();
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                showAdIfAvailable();
+            }
+        },3100);
     }
 
     /**
